@@ -1,0 +1,8 @@
+# Entries for Gradle
+.gradle/
+**/build/
+
+# Entries for IntelliJ
+.idea/workspace.xml
+.idea/libraries/
+out/
