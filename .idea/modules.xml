@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hello.iml" filepath="$PROJECT_DIR$/.idea/modules/hello.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hello_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hello_main.iml" group="hello" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hello_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hello_test.iml" group="hello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala.iml" group="scala" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala_main.iml" group="scala" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala_test.iml" group="scala" />
     </modules>
   </component>
 </project>

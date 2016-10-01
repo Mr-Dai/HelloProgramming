@@ -1,2 +1,4 @@
 rootProject.name = 'hello'
+include ':scala'
 
+project(':scala').projectDir = "$rootDir/HelloScala" as File
