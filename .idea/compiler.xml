@@ -19,8 +19,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="hello_main" target="1.5" />
-      <module name="hello_test" target="1.5" />
+      <module name="hello.nio_main" target="1.8" />
+      <module name="hello.nio_test" target="1.8" />
+      <module name="hello.scala_main" target="1.8" />
+      <module name="hello.scala_test" target="1.8" />
+      <module name="hello_main" target="1.8" />
+      <module name="hello_test" target="1.8" />
       <module name="scala_main" target="1.8" />
       <module name="scala_test" target="1.8" />
     </bytecodeTargetLevel>

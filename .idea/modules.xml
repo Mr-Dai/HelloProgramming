@@ -3,9 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hello.iml" filepath="$PROJECT_DIR$/.idea/modules/hello.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala.iml" group="scala" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala_main.iml" group="scala" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/scala_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/scala_test.iml" group="scala" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio.iml" group="hello.nio" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_main.iml" group="hello.nio" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_test.iml" group="hello.nio" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala.iml" group="hello.scala" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_main.iml" group="hello.scala" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_test.iml" group="hello.scala" />
     </modules>
   </component>
 </project>

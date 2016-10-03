@@ -1,4 +1,7 @@
 rootProject.name = 'hello'
-include ':scala'
+include ':hello.scala'
+include ':hello.nio'
 
-project(':scala').projectDir = "$rootDir/HelloScala" as File
+project(':hello.scala').projectDir = "$rootDir/HelloScala" as File
+project(':hello.nio').projectDir = "$rootDir/HelloNIO" as File
+
