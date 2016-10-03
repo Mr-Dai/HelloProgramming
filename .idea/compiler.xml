@@ -21,6 +21,8 @@
     <bytecodeTargetLevel>
       <module name="hello.nio_main" target="1.8" />
       <module name="hello.nio_test" target="1.8" />
+      <module name="hello.rxjava_main" target="1.8" />
+      <module name="hello.rxjava_test" target="1.8" />
       <module name="hello.scala_main" target="1.8" />
       <module name="hello.scala_test" target="1.8" />
       <module name="hello_main" target="1.8" />

@@ -6,6 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio.iml" group="hello.nio" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_main.iml" group="hello.nio" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloNIO/hello.nio_test.iml" group="hello.nio" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava.iml" group="hello.rxjava" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava_main.iml" group="hello.rxjava" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloRxJava/hello.rxjava_test.iml" group="hello.rxjava" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala.iml" group="hello.scala" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_main.iml" group="hello.scala" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloScala/hello.scala_test.iml" group="hello.scala" />
