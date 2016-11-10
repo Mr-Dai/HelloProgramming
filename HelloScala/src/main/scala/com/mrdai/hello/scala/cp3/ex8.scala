@@ -1,7 +1,5 @@
 package com.mrdai.hello.scala.cp3
 
-import com.mrdai.scala.learning.cp3.ex6.ex6
-
 import scala.collection.mutable.ArrayBuffer
 
 object ex8 {

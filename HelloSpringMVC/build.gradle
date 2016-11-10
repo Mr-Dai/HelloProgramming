@@ -1,0 +1,31 @@
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '4.3.3.RELEASE'
+}
+
+gretty {
+    contextPath = '/'
+}
+
+dependencies {
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: "$springVersion"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.2.11'
+    testCompile group: 'org.springframework', name: 'spring-test', version: "$springVersion"
+}

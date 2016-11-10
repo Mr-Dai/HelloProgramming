@@ -3,6 +3,5 @@
 **/build/
 
 # Entries for IntelliJ
-.idea/workspace.xml
-.idea/libraries/
+.idea/
 out/

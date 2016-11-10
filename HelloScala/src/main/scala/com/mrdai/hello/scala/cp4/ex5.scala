@@ -1,13 +1,10 @@
 package com.mrdai.hello.scala.cp4
 
 import java.io.File
-import java.util.Scanner
-import java.util.TreeMap
+import java.util.{Scanner, TreeMap}
 
-import scala.collection.mutable
 import scala.collection.JavaConversions.mapAsScalaMap
-
-import com.mrdai.scala.learning.cp4.ex2.ex2.anyFunc2Consumer
+import scala.collection.mutable
 
 object ex5 {
 

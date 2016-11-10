@@ -5,8 +5,6 @@ import java.util.Scanner
 
 import scala.collection.immutable
 
-import com.mrdai.scala.learning.cp4.ex2.ex2.anyFunc2Consumer
-
 object ex3 {
 
   def apply(file : File) : Map[String, Int] = {
