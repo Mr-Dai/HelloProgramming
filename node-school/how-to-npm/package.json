@@ -1,0 +1,15 @@
+{
+  "name": "@robert.peng/how-to-npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "",
+  "repository": "https://github.com/Mr-Dai/Node-School",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@linclark/pkg": "^1.0.2"
+  }
+}

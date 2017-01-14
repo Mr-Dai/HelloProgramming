@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/spittles")
 public class SpittleController {
-    private static final String MAX_LONG_AS_STRING = "" + Long.MAX_VALUE;
+    private static final String MAX_LONG_AS_STRING = "9223372036854775807";
 
     private SpittleRepository spittleRepository;
 
