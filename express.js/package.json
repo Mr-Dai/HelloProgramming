@@ -1,0 +1,27 @@
+{
+  "name": "hello-express",
+  "version": "1.0.0",
+  "description": "My demo code for Express.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-Dai/HelloProgramming.git"
+  },
+  "keywords": [
+    "Demo",
+    "Express.js"
+  ],
+  "author": "Robert Peng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-Dai/HelloProgramming/issues"
+  },
+  "homepage": "https://github.com/Mr-Dai/HelloProgramming#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
