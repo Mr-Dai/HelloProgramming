@@ -1,5 +1,8 @@
 #include <stdio.h>
 
-main() {
-    printf("Hello World!\n");
+int main() {
+    /* My first programin C */
+    printf("Hello, World!\n");
+
+    return 0;
 }

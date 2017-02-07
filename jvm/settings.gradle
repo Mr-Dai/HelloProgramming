@@ -2,7 +2,10 @@ rootProject.name = 'hello'
 include ':hello.scala'
 include ':hello.nio'
 include ':hello.springmvc'
+include ':hello.ehcache'
 
 project(':hello.scala').projectDir = "$rootDir/HelloScala" as File
 project(':hello.nio').projectDir = "$rootDir/HelloNIO" as File
 project(':hello.springmvc').projectDir = "$rootDir/HelloSpringMVC" as File
+project(':hello.ehcache').projectDir = "$rootDir/HelloEhcache" as File
+
