@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"image/color"
 	"image/gif"
@@ -14,31 +13,21 @@ import (
 var palette = []color.Color{color.White, color.Black}
 
 const (
-	whiteIndex = 0
-	blackIndex = 1
+	whiteIndex = 0 // 1st `Color` in `palette`
+	blackIndex = 1 // 2nd `Color` in `palette`
 )
 
 func main() {
-	if len(os.Args) > 1 {
-		f, err := os.Create(os.Args[1])
-		if err != nil {
-			fmt.Fprintln(os.Stderr, err)
-			return
-		}
-		lissajous(f)
-		f.Close()
-	} else {
-		lissajous(os.Stdout)
-	}
+	lissajous(os.Stdout)
 }
 
 func lissajous(out io.Writer) {
 	const (
-		cycles  = 5     // number of complete x oscillator revolutions
-		res     = 0.001 // angular resolution
-		size    = 100   // image canvas convers [-size..+size]
-		nframes = 64    // number of animation frames
-		delay   = 8     // delay between frames in 10ms units
+		cycles  = 5
+		res     = 0.001
+		size    = 100
+		nframes = 64
+		delay   = 8
 	)
 	freq := rand.Float64() * 3.0
 	anim := gif.GIF{LoopCount: nframes}
@@ -46,7 +35,7 @@ func lissajous(out io.Writer) {
 	for i := 0; i < nframes; i++ {
 		rect := image.Rect(0, 0, 2*size+1, 2*size+1)
 		img := image.NewPaletted(rect, palette)
-		for t := 0.0; t < 2*math.Pi*cycles; t += res {
+		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
 			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)

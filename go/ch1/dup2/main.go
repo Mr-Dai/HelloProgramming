@@ -12,19 +12,19 @@ func main() {
 	if len(files) == 0 {
 		countLines(os.Stdin, counts)
 	} else {
-		for _, file := range files {
-			f, err := os.Open(file)
+		for _, arg := range files {
+			f, err := os.Open(arg)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "dup: %v\n", err)
+				fmt.Fprintf(os.Stderr, "dup2: %v\n", err)
 				continue
 			}
 			countLines(f, counts)
 			f.Close()
 		}
 	}
-	for line, count := range counts {
-		if count > 1 {
-			fmt.Printf("%d\t%s\n", count, line)
+	for line, n := range counts {
+		if n > 1 {
+			fmt.Printf("%d\t%s\n", n, line)
 		}
 	}
 }
