@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello WebGL</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div style="position: relative; height: 100%">
+        <div style="position: absolute; color: white; padding: 10px;">
+            Fov: <span id="fov">90</span> (pressing spacebar to adjust)
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+<script id="vertex-shader" src="shaders/vert.glsl" type="x-shader/x-vertex"></script>
+<script id="fragement-shader" src="shaders/frag.glsl" type="x-shader/x-fragment"></script>
+<script src="scripts/twgl-full.js"></script>
+<script src="scripts/lib.js"></script>
+<script src="scripts/app.js"></script>
+</html>
