@@ -5,11 +5,12 @@ import (
 	"os"
 )
 
+// Echo1 prints its command-line arguments.
 func main() {
-	var s, seq string
+	var s, sep string
 	for i := 1; i < len(os.Args); i++ {
-		s += seq + os.Args[i]
-		seq = " "
+		s += sep + os.Args[i]
+		sep = " "
 	}
 	fmt.Println(s)
 }
