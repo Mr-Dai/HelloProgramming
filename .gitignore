@@ -1,10 +1,21 @@
 # Entries for Gradle
-.gradle/
+**/.gradle/
 **/build/
 
 # Entries for IntelliJ
-.idea/
-out/
+**/.idea/
+**/out/
+
+# Entries for Java
+**.class
+**.jar
+**.war
 
 # Entries for VS Code
-.vscode/
+**/.vscode/
+
+# Entries for NodeJS
+**/node_modules/
+**.npmrc
+
+**.log
