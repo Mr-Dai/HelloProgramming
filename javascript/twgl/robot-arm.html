@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello WebGL</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas" width="640" height="480"></canvas>
+        <div id="instructions">
+            Use the I key and O key to move the hand<br>
+            Use the J key and K key to move the forearm<br>
+            Use the N key and M key to move the upper arm
+        </div>
+    </div>
+</body>
+<script id="vertex-shader" src="shaders/robot-arm-vert.glsl" type="x-shader/x-vertex"></script>
+<script id="fragement-shader" src="shaders/robot-arm-frag.glsl" type="x-shader/x-fragment"></script>
+<script src="scripts/twgl-full.js"></script>
+<script src="scripts/trackball.js"></script>
+<script src="scripts/matrixstack.js"></script>
+<script src="scripts/lib.js"></script>
+<script src="scripts/robot-arm-app.js"></script>
+</html>
