@@ -58,4 +58,4 @@ counts[line] = counts[line] + 1
 
 除此之外，`Printf` 也支持常见的转义序列（Escape Sequence），如 `\n`、`\t` 等。
 
-[<- 返回上一节](../echo3/) [进入下一节 ->](../dup2/) 
+[<- 返回上一节](echo3.md) [进入下一节 ->](dup2.md) 
