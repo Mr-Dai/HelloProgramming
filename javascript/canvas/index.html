@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Processing</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/slider.css">
+</head>
+<body>
+    <h1>Image Processing - <span class="operation_name"></span></h1>
+    <!-- The Image Canvas -->
+    <table>
+        <tr><td colspan="2">Operation: <select id="operation"></select></td>
+        <tr>
+            <td>Source Image: <select id="source_image"></select></td>
+            <td>Result Image:</td>
+        </tr>
+        <tr>
+            <td>
+                <!-- The Source Image Canvas -->
+                <canvas id="source" width="400" height="300"></canvas>
+            </td>
+            <td>
+                <!-- The Result Image Canvas -->
+                <canvas id="result" width="400" height="300"></canvas>
+            </td>
+        </tr>
+    </table>
+
+    <!-- The Controls Area -->
+    <table id="control">
+        <tr>
+            <td colspan="2">
+                <!-- The Apply Button -->
+                <button id="apply">Apply <span class="operation_name"></span></button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="./lib/util.js"></script>
+<script src="./lib/processor.js"></script>
+<script src="./lib/imageproc.js"></script>
+<script src="./lib/app.js"></script>
+<script>appInit()</script>
+</html>
