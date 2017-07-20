@@ -22,6 +22,7 @@ func main() {
 
 接着，我们使用了 `bufio` 包的 `NewScanner` 函数，以 `os.Stdin` 为数据来源创建了一个 `Scanner` 对象。
 实际上，`NewScanner` 函数接受任何实现了 `os.Reader` 接口的参数，后面我们还会使用它来从别的地方读入数据。
+（点击[此处](https://golang.org/pkg/bufio/)查看 `bufio` 包的文档）
 
 `Scanner` 对象的 `Scan` 方法能令 `Scanner` 从数据来源中读入一行文本并将末尾的换行符去掉。
 当成功读入数据时，`Scan` 方法将返回 `true`；若已经到达数据末尾，则 `Scan` 方法将返回 `false`。
@@ -58,4 +59,4 @@ counts[line] = counts[line] + 1
 
 除此之外，`Printf` 也支持常见的转义序列（Escape Sequence），如 `\n`、`\t` 等。
 
-[<- 返回上一节](echo3.md) [进入下一节 ->](dup2.md) 
+[<- 返回上一节](join/README.md) [进入下一节 ->](dup2.md) 
