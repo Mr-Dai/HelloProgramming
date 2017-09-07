@@ -1,10 +1,19 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 
 	"github.com/streadway/amqp"
 )
+
+var host string
+var port int
+var username string
+var password string
+var queue string
+var message string
 
 func failOnError(err error, msg string) {
 	if err != nil {
@@ -13,8 +22,18 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest@localhost/")
-	failOnError(err, "Failed to connect to RabbitMQ")
+	flag.StringVar(&host, "host", "localhost", "hostname of the remote RabbitMQ instance")
+	flag.IntVar(&port, "port", 5672, "port of the remote RabbitMQ instance")
+	flag.StringVar(&username, "username", "guest", "username for RabbitMQ authentication")
+	flag.StringVar(&password, "password", "guest", "password for RabbitMQ authentication")
+	flag.StringVar(&queue, "queue", "hello", "name of the queue to use")
+	flag.StringVar(&message, "message", "hello", "message to send")
+
+	flag.Parse()
+
+	uri := fmt.Sprintf("amqp://%s:%s@%s:%d/", username, password, host, port)
+	conn, err := amqp.Dial(uri)
+	failOnError(err, fmt.Sprintf("Failed to connect to `%s`", uri))
 	defer conn.Close()
 
 	ch, err := conn.Channel()
@@ -22,16 +41,15 @@ func main() {
 	defer ch.Close()
 
 	q, err := ch.QueueDeclare(
-		"hello", // name
-		false,   // durable
-		false,   // delete when unused
-		false,   // exclusive
-		false,   // no-wait
-		nil,     // arguments
+		queue, // name
+		false, // durable
+		false, // delete when unused
+		false, // exclusive
+		false, // no-wait
+		nil,   // arguments
 	)
-	failOnError(err, "Failed to declare a queue")
+	failOnError(err, fmt.Sprintf("Failed to declare queue `%s`", queue))
 
-	body := "hello"
 	err = ch.Publish(
 		"",     // exchange
 		q.Name, // routing key
@@ -39,8 +57,8 @@ func main() {
 		false,  // immediate
 		amqp.Publishing{
 			ContentType: "text/plain",
-			Body:        []byte(body),
+			Body:        []byte(message),
 		})
-	log.Printf(" [x] Sent %s", body)
+	log.Printf(" [x] Send `%s` to queue `%s`", message, queue)
 	failOnError(err, "Failed to publish a message")
 }

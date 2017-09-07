@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	"github.com/streadway/amqp"
 )
@@ -26,7 +28,8 @@ func main() {
 	flag.IntVar(&port, "port", 5672, "port of the remote RabbitMQ instance")
 	flag.StringVar(&username, "username", "guest", "username for RabbitMQ authentication")
 	flag.StringVar(&password, "password", "guest", "password for RabbitMQ authentication")
-	flag.StringVar(&queue, "queue", "hello", "name of the queue to listen to")
+	flag.StringVar(&queue, "queue", "task_queue", "name of the queue to send task to")
+	flag.Parse()
 
 	uri := fmt.Sprintf("amqp://%s:%s@%s:%d/", username, password, host, port)
 	conn, err := amqp.Dial(uri)
@@ -39,33 +42,35 @@ func main() {
 
 	q, err := ch.QueueDeclare(
 		queue, // name
-		false, // durable
-		false, // delete when usused
+		true,  // durable
+		false, // delete when unused
 		false, // exclusive
 		false, // no-wait
 		nil,   // arguments
 	)
 	failOnError(err, fmt.Sprintf("Failed to declare queue `%s`", queue))
 
-	msgs, err := ch.Consume(
-		q.Name, // queue
-		"",     // consumer
-		true,   // auto-ack
-		false,  // exclusive
-		false,  // no-local
-		false,  // no-wait
-		nil,    // args
-	)
-	failOnError(err, "Failed to register a consumer")
+	body := bodyFrom(os.Args)
+	err = ch.Publish(
+		"",     // exchange
+		q.Name, // routing key
+		false,  // mandatory
+		false,
+		amqp.Publishing{
+			DeliveryMode: amqp.Persistent,
+			ContentType:  "text/plain",
+			Body:         []byte(body),
+		})
+	failOnError(err, "Failed to publish a message")
+	log.Printf(" [x] Sent `%s`", body)
+}
 
-	forever := make(chan bool)
-
-	go func() {
-		for d := range msgs {
-			log.Printf("Received a message: `%s`", d.Body)
-		}
-	}()
-
-	log.Printf(" [*] Waiting for messages on queue `%s`. To exit press CTRL+C", queue)
-	<-forever
+func bodyFrom(args []string) string {
+	var s string
+	if (len(args) < 2) || os.Args[1] == "" {
+		s = "hello"
+	} else {
+		s = strings.Join(args[1:], " ")
+	}
+	return s
 }

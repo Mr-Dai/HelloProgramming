@@ -1,11 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
-	"log"
-
 	"github.com/streadway/amqp"
+	"log"
+	"time"
 )
 
 func failOnError(err error, msg string) {
@@ -26,31 +27,35 @@ func main() {
 	flag.IntVar(&port, "port", 5672, "port of the remote RabbitMQ instance")
 	flag.StringVar(&username, "username", "guest", "username for RabbitMQ authentication")
 	flag.StringVar(&password, "password", "guest", "password for RabbitMQ authentication")
-	flag.StringVar(&queue, "queue", "hello", "name of the queue to listen to")
+	flag.StringVar(&queue, "queue", "task_queue", "name of the queue to listen to")
+	flag.Parse()
 
 	uri := fmt.Sprintf("amqp://%s:%s@%s:%d/", username, password, host, port)
 	conn, err := amqp.Dial(uri)
 	failOnError(err, fmt.Sprintf("Failed to connect to `%s`", uri))
 	defer conn.Close()
 
-	ch, err := conn.Channel()
-	failOnError(err, "Failed to open a channel")
-	defer ch.Close()
-
 	q, err := ch.QueueDeclare(
 		queue, // name
-		false, // durable
-		false, // delete when usused
+		true,  // durable
+		false, // delete when unused
 		false, // exclusive
 		false, // no-wait
 		nil,   // arguments
 	)
 	failOnError(err, fmt.Sprintf("Failed to declare queue `%s`", queue))
 
+	err = ch.Qos(
+		1,     // prefetch count
+		0,     // prefetch size
+		false, // global
+	)
+	failOnError(err, "Failed to set QoS")
+
 	msgs, err := ch.Consume(
 		q.Name, // queue
 		"",     // consumer
-		true,   // auto-ack
+		false,  // auto-ack
 		false,  // exclusive
 		false,  // no-local
 		false,  // no-wait
@@ -62,10 +67,15 @@ func main() {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message: `%s`", d.Body)
+			log.Printf("Received a message: %s", d.Body)
+			dot_count := bytes.Count(d.Body, []byte("."))
+			t := time.Duration(dot_count)
+			time.Sleep(t * time.Second)
+			log.Printf("Done")
+			d.Ack(false)
 		}
 	}()
 
-	log.Printf(" [*] Waiting for messages on queue `%s`. To exit press CTRL+C", queue)
+	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	<-forever
 }

@@ -13,11 +13,11 @@ app.response_class = JSONResponse
 
 @app.route("/")
 def hello_world():
-    return { 'message': 'Hello World!' }
+    return {'message': 'Hello World!'}
 
 @app.route("/custom_headers")
 def headers():
-    return { 'headers': [1, 2, 3] }, 201, [('X-Request-Id', '100')]
+    return {'headers': [1, 2, 3]}, 201, [('X-Request-Id', '100')]
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=9000)
