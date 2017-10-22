@@ -10,6 +10,7 @@ let octal: number = 0o744;
 // String
 let color: string = "blue";
 color = "red";
+
 // Template String
 let fullName: string = `Bob Bobbington`;
 let age: number = 37;
