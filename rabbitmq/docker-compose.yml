@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.6-management
+    ports:
+      - "5671:5671"
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+        RABBITMQ_DEFAULT_USER: rabbit
+        RABBITMQ_DEFAULT_PASS: rabbit
+    container_name: hello-rabbitmq
+    hostname: hello-rabbitmq
